@@ -1,0 +1,12 @@
+file_format: "1"
+id: tigger_move
+name: tigger_move
+type: shield
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+siblings:
+  - tigger_move_left
+  - tigger_move_right

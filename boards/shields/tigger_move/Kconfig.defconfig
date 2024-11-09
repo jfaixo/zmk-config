@@ -1,0 +1,16 @@
+if SHIELD_TIGGER_MOVE_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Tigger Move"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_TIGGER_MOVE_LEFT || SHIELD_TIGGER_MOVE_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
