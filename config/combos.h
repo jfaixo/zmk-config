@@ -14,7 +14,7 @@
       key-positions = <KEYPOS>; \
       layers = <LAYERS>; \
     };
-    
+
     // Common keys
     COMBO(combo_escape,             &kp ESC,                  LT4 LM4,      35,   ALL_LAYERS)
     

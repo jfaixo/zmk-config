@@ -34,27 +34,37 @@ CUSTOM_KEY(twos, FR_N2, FR_SQUARE)
 CUSTOM_KEY(caret_trema, FR_CARET, FR_TREMA)
 CUSTOM_KEY(amps_euro, FR_AMPS, FR_EURO)
 CUSTOM_KEY(dollar_micro, FR_DOLLAR, FR_MICRO)
-CUSTOM_KEY(space_enter, SPACE, ENTER)
+CUSTOM_KEY(space_under, SPACE, FR_UNDER)
 
 
 
 / {
   behaviors {
-    cmt: cmt {
+    ta: ta {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
-      flavor = "hold-preferred";
-      tapping-term-ms = <200>;
-      bindings = <&kp>, <&kp>;
+      flavor = "balanced";
+      tapping-term-ms = <1000>;
+      quick-tap-ms = <150>;
+      bindings = <&mo>, <&space_under>;
     };
 
-    clt: clt {
+    tmk: tmk {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
       flavor = "hold-preferred";
       tapping-term-ms = <200>;
-      quick-tap-ms = <135>;
+      quick-tap-ms = <150>;
       bindings = <&mo>, <&kp>;
+    };
+
+    tkk: tkk {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "hold-preferred";
+      tapping-term-ms = <200>;
+      quick-tap-ms = <150 >;
+      bindings = <&kp>, <&kp>;
     };
   };
 
@@ -71,7 +81,7 @@ CUSTOM_KEY(space_enter, SPACE, ENTER)
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
        &kp FR_Z        &kp FR_X        &kp FR_C        &kp FR_D        &kp FR_V            &kp FR_K        &kp FR_H       &as_commas       &as_dots        &as_slashes
 // ╰───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
-                                       &kp ESC         &kp LSHIFT      &mo L_ACT         &space_enter   &clt L_SYM BSPC  &clt L_MGT DEL
+                                       &kp ESC         &mo L_FUN     &ta L_ACT 0       &tmk L_SYM ENTER &tkk LSHIFT BSPC &tmk L_MGT DEL
 //                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
       >;
     };
@@ -80,11 +90,11 @@ CUSTOM_KEY(space_enter, SPACE, ENTER)
       display-name = "act";
       bindings = <
 // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-   &gui_pre FR_AMPS &gui_pre FR_E_E &gui_pre FR_DQT &gui_pre FR_SQT &gui_pre FR_LPAR      &kp PAGE_UP      &kp HOME        &kp UP          &kp END       &kp PAGE_DOWN
+   &gui_pre FR_AMPS &gui_pre FR_E_E &gui_pre FR_DQT &gui_pre FR_SQT &gui_pre FR_LPAR      &kp PAGE_UP     &kp LS(TAB)       &kp UP         &kp TAB       &kp PAGE_DOWN
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-       &sm LCTRL       &sm LSHFT       &sm LALT        &sm LGUI         &trans              &trans         &kp LEFT        &kp DOWN        &kp RIGHT        &trans
+       &sm LCTRL       &sm LSHFT       &sm LALT        &sm LGUI          &trans            &kp HOME         &kp LEFT        &kp DOWN       &kp RIGHT       &kp END
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-       &kp LC(W)       &kp LC(X)       &kp LC(C)       &kp LC(V)     &kp LC(LS(W))          &trans        &kp LS(TAB)       &kp ESC         &kp TAB         &trans
+       &kp LC(W)       &kp LC(X)       &kp LC(C)       &kp LC(V)     &kp LC(LS(W))          &trans        &kp LS(TAB)      &kp ESC         &kp TAB         &trans
 // ╰───────────────┴───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
                                         &trans          &trans           &trans             &trans          &trans          &trans
 //                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
@@ -95,7 +105,7 @@ CUSTOM_KEY(space_enter, SPACE, ENTER)
       display-name = "symbols";
       bindings = <
 // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-     &kp FR_STAR       &kp FR_N7       &kp FR_N8       &kp FR_N9      &kp FR_MINUS       &kp FR_TILDE    &dollar_micro    &caret_trema    &kp FR_AT       &kp FR_GRAVE
+     &kp FR_STAR       &kp FR_N7       &kp FR_N8       &kp FR_N9      &kp FR_MINUS       &kp FR_TILDE     &kp FR_AT       &caret_trema   &dollar_micro    &kp FR_GRAVE
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
      &kp FR_SLASH      &kp FR_N4       &kp FR_N5       &kp FR_N6      &kp FR_PLUS        &kp FR_HASH      &kp FR_MINUS    &amps_euro      &kp FR_QMARK    &kp FR_EXCL
 // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
