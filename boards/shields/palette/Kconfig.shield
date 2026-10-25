@@ -1,0 +1,5 @@
+config SHIELD_PALETTE_LEFT
+    def_bool $(shields_list_contains,palette_left)
+
+config SHIELD_PALETTE_RIGHT
+    def_bool $(shields_list_contains,palette_right)

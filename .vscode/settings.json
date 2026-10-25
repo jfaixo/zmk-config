@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "*.keymap": "c"
+        "*.keymap": "c",
+        "keys_fr.h": "c",
+        "helpers.h": "c",
+        "combos.h": "c"
     }
 }

@@ -1,0 +1,12 @@
+file_format: "1"
+id: palette
+name: palette
+type: shield
+requires: [xiao_ble//zmk]
+exposes: []
+features:
+  - keys
+  - encoder
+siblings:
+  - palette_left
+  - palette_right
