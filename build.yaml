@@ -14,6 +14,8 @@
 ---
 include:
   - board: xiao_ble//zmk
+    shield: palette_dongle
+  - board: xiao_ble//zmk
     shield: palette_left 
   - board: xiao_ble//zmk
     shield: palette_right 

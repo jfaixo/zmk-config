@@ -1,4 +1,4 @@
-if SHIELD_PALETTE_LEFT
+if SHIELD_PALETTE_DONGLE
 
 config ZMK_KEYBOARD_NAME
     default "Palette"
@@ -6,9 +6,19 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+config BT_MAX_CONN
+    default 6
+
+# Set this to the same number as BT_MAX_CONN
+config BT_MAX_PAIRED
+    default 6
+
 endif
 
-if SHIELD_PALETTE_LEFT || SHIELD_PALETTE_RIGHT
+if SHIELD_PALETTE_LEFT || SHIELD_PALETTE_RIGHT || SHIELD_PALETTE_DONGLE
 
 config ZMK_SPLIT
     default y
